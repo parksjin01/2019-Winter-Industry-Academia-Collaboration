@@ -5,6 +5,13 @@ from PIL import Image
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+# Resizing image to fit tensorflow model input size
+# Parameter
+#     image_name: File name of user input
+#     size:       Size of input for tensorflow model
+# Return
+#     The file name of preprocessed file
+
 def resizing(image_name, size):
     processed = os.listdir("./user_input")
     if image_name.strip("./") + "_preprocessed.png" in processed:
@@ -24,7 +31,12 @@ def resizing(image_name, size):
     except IOError:
         print("Can't find Image")
 
-def color2mono(image, size):
+# Convert colorful RGB image to monotone image
+# Parameter
+#   image: Image object which wants to conver RGB to greyscale
+# Return
+#   Converted Image object
+def color2mono(image):
     mono = image.convert('1')
     return mono
 

@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="preprocessing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocessing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MNIST/preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+            <state relative-caret-position="136">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
               <folding>
                 <element signature="e#26#36#0" expanded="true" />
               </folding>
@@ -26,8 +26,8 @@
       <file leaf-file-name="one_hot_encoding.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MNIST/one_hot_encoding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="162">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
                 <element signature="e#26#36#0" expanded="true" />
               </folding>
@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model_learning.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="model_learning.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MNIST/model_learning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="406">
+              <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
               <folding>
                 <element signature="e#131#144#0" expanded="true" />
               </folding>
@@ -61,6 +61,7 @@
       <find>255</find>
       <find>0</find>
       <find>1</find>
+      <find>]]</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -69,10 +70,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MNIST/one_hot_encoding.py" />
         <option value="$PROJECT_DIR$/MNIST/model.py" />
-        <option value="$PROJECT_DIR$/MNIST/model_learning.py" />
         <option value="$PROJECT_DIR$/MNIST/preprocessing.py" />
+        <option value="$PROJECT_DIR$/MNIST/one_hot_encoding.py" />
+        <option value="$PROJECT_DIR$/MNIST/model_learning.py" />
       </list>
     </option>
   </component>
@@ -97,18 +98,6 @@
               <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
               <item name="MNIST" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST_data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST" type="462c0819:PsiDirectoryNode" />
-              <item name="user_input" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -214,7 +203,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -245,10 +233,20 @@
     <entry file="file://$PROJECT_DIR$/MNIST/user_input/VMware_vCloud.jpg_preprocessed.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/MNIST/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding>
+            <element signature="e#26#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MNIST/one_hot_encoding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="162">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
             <element signature="e#26#36#0" expanded="true" />
           </folding>
@@ -257,20 +255,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MNIST/model_learning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="406">
+          <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
           <folding>
             <element signature="e#131#144#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MNIST/preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
-          <folding>
-            <element signature="e#26#36#0" expanded="true" />
           </folding>
         </state>
       </provider>

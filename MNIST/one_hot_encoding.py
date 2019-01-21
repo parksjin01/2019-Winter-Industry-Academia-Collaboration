@@ -5,6 +5,11 @@ from PIL import Image
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+# Read image file and convert image to one-hot encoding list
+# Parameter
+#   image_name: Image file name which user wants to read
+# Return
+#   List of one-hot encoding
 def read(image_name):
     try:
         img = Image.open(image_name)
