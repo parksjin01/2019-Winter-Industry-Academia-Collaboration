@@ -3,11 +3,6 @@
 # Code is quoted from above site
 # 위의 사이트에서 코드 인용
 
-
-# Model Architecture
-# -----
-
-
 import psutil
 
 from tensorflow.examples.tutorials.mnist import input_data
@@ -83,7 +78,7 @@ sess.run(tf.global_variables_initializer())
 
 saver = tf.train.Saver()
 
-for i in range(201):
+for i in range(501):
   batch = mnist.train.next_batch(50)
   if i%100 == 0:
     train_accuracy = accuracy.eval(feed_dict={
@@ -93,4 +88,4 @@ for i in range(201):
 
 print("test accuracy %g"%accuracy.eval(feed_dict={
     x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
-saver.save(sess, "./MNIST_MODEL")
+saver.save(sess, "./MNIST_MODEL_IMPROVED")

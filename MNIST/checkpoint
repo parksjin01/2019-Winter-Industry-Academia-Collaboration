@@ -1,2 +1,2 @@
-model_checkpoint_path: "MNIST_MODEL"
-all_model_checkpoint_paths: "MNIST_MODEL"
+model_checkpoint_path: "MNIST_MODEL_IMPROVED"
+all_model_checkpoint_paths: "MNIST_MODEL_IMPROVED"
