@@ -109,16 +109,6 @@
               <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="Image" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -243,7 +233,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="10" />
