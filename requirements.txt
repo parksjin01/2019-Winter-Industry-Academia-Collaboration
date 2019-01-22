@@ -1,3 +1,11 @@
 tensorflow==1.5.0
 Pillow==5.4.1
 Numpy==1.14.0
+
+Packages used by Caltech101_image classify model
+h5py==2.9.0
+Keras==2.2.4
+Pillow==5.4.1
+python==3.6.8
+sklearn==0.0
+tensorflow==1.12.0
