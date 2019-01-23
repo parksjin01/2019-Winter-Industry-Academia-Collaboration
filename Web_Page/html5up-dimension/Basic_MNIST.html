@@ -115,14 +115,29 @@
 								This is the most basic architecture for MNIST problems. This architecture's accuracy is not good because architecture is too simple. Only hidden layer has weight and bias to predict number but it has only one. If we want to improve accuracy we have to increase number of hidden layer, training more and select more appropriate features.</p>
 							</article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Upload</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="Display Image" /></span>
-								<p>Upload Image! ML will detect your handwritten number.</p>
-								<p>Please upload image which contains 1 number, This AI is really stupid...</p>
-								<button>Upload</button>
-							</article>
+							<!-- Work -->
+								<article id="work">
+									<h2 class="major">Upload</h2>
+									<span class="image main"><img id="preview" src="images/pic02.jpg" alt="Display Image" /></span>
+									<p>Upload Image! ML will detect your handwritten number.</p>
+									<p>Please upload image which contains 1 number, This AI is stupid...</p>
+									<input type="file" id="getfile" accept="image/*" name="" value="Upload">
+								</article>
+
+	              <script type="text/javascript">
+	                var file = document.querySelector("#getfile");
+
+	                file.onchange=function() {
+	                  var fileList = file.files;
+
+	                  var reader = new FileReader();
+	                  reader.readAsDataURL(fileList[0]);
+
+	                  reader.onload = function() {
+	                    document.querySelector("#preview").src = reader.result;
+	                  }
+	                }
+	              </script>
 
 						<!-- About -->
 							<article id="about">

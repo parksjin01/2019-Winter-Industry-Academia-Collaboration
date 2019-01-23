@@ -133,11 +133,26 @@
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Upload</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="Display Image" /></span>
+								<span class="image main"><img id="preview" src="images/pic02.jpg" alt="Display Image" /></span>
 								<p>Upload Image! ML will detect your handwritten number.</p>
 								<p>Please upload image which contains 1 number, This AI is stupid...</p>
-								<button>Upload</button>
+								<input type="file" id="getfile" accept="image/*" name="" value="Upload">
 							</article>
+
+              <script type="text/javascript">
+                var file = document.querySelector("#getfile");
+
+                file.onchange=function() {
+                  var fileList = file.files;
+
+                  var reader = new FileReader();
+                  reader.readAsDataURL(fileList[0]);
+
+                  reader.onload = function() {
+                    document.querySelector("#preview").src = reader.result;
+                  }
+                }
+              </script>
 
 						<!-- About -->
 							<article id="about">
