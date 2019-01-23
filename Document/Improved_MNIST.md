@@ -2,7 +2,9 @@ Improved_MNIST model
 ====================
 
 This model is improved version of simple MNIST model (with just 1 layer).  
-Simple MNIST model's accuracy was about 92% but this model can increase up to 99.2%.  
+It classify handwritten number images to digit. ![handwritten](https://i.imgur.com/s5DJSoM.jpg)
+
+For example, model will classify above image as 2. Simple MNIST model's accuracy was about 92% but this model can increase up to 99.2%.  
 Then how this improved MNIST model can increase accuracy?
 
 ### CNN (Convolutional Neural Network)

@@ -31,9 +31,11 @@ sess = tf.Session()
 sess.run(init)
 
 # Training
-for i in range(1000):
-  batch_xs, batch_ys = mnist.train.next_batch(100)
-  sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+for i in range(10000):
+    if i % 100 == 0:
+        print "[", i, "10,000 ]"
+    batch_xs, batch_ys = mnist.train.next_batch(100)
+    sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
 # Calculate prediction accuracy by compare test set's predicted number and label
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))

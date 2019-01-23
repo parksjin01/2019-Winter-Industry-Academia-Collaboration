@@ -2,7 +2,9 @@ Improved_MNIST model
 ====================
 
 This model is basic version of MNIST model (with just 1 layer).  
-Basic MNIST model's accuracy was about 92%. It may seem very high, but it means if user upload 10 images, nearly always 1 image could be predicted as wrong value. Let's see how this basic ANN can predict hand written number.
+It classify handwritten number images to digit. ![handwritten](https://i.imgur.com/s5DJSoM.jpg)
+
+For example, model will classify above image as 2. Basic MNIST model's accuracy was about 92%. It may seem very high, but it means if user upload 10 images, nearly always 1 image could be classified as wrong value. Let's see how this basic ANN can predict hand written number.
 
 ### Model Architecture
 
