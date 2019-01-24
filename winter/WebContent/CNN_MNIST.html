@@ -75,7 +75,7 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Basic MNIST</h1>
+								<h1>CNN MNIST</h1>
 								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
 								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
 							</div>
@@ -96,48 +96,44 @@
 
 						<!-- Intro -->
 							<article id="intro">
-								<h2 class="major">Basic MNIST</h2>
+								<h2 class="major">CNN MNIST</h2>
 								<h4>Intro</h4>
 								<p>
-									This model is basic version of MNIST model (with just 1 layer).<br/>
+									This model is improved version of simple MNIST model (with just 1 layer).  <br/>
 									<span class="image main"><img src="https://i.imgur.com/s5DJSoM.jpg" alt="MNIST Example" /></span>
 									For example, model will classify above image as 2.<br/>
-									Basic MNIST model's accuracy was about 92%.<br/> It may seem very high, but it means if user upload 10 images,<br/> nearly always 1 image could be predicted as wrong value.<br/> Let's see how this basic ANN can predict hand written number.
+									Simple MNIST model's accuracy was about 92% but this model can increase up to 99.2%.  <br/>
+									Then how this improved MNIST model can increase accuracy?
+								</p>
+								<h4>What is CNN?</h4>
+								<p>
+									This improved model use CNN to extract feature. When input data of ANN model is image, it's hard to select feature of image manually. To improve accuracy of ANN model when input data type is image, we can use ANN to extract feature of image automatically. CNN is basic technology to extract feature in image. In MNIST problem, input data is image of handwritten number, So we can improve accuracy by using CNN to extract feature<br/><br/>
+
+									CNN is consist of convolution layer and pooling layer. Convolution layer extract feature of image by matrix multiplication. Pooling layer is used to reduce feature size or emphasize specific feature.<br/><br/>
+
+									CNN can improve accuracy of tensorflow model which handle image data. The reason of improvement is, Fully connected layer only support 1D data and image is 2D data. We need to flatten 2D image to 1D data to use fully connected layer. In this step, spatial information of 2D image is lost. To avoid lost of spatial informations, we use CNN which extract spatial information as feature. So when we use spatial data as input, we can improve accuracy by using CNN
 								</p>
 								<h4>Architecture</h4>
-								<span class="image main"><img src="https://i.imgur.com/QQ7A5XO.jpg" alt="Basic_MNIST_Architecture" /></span>
-								<p>There are three layers in model. First layer is input layer. Input layer receive image as [?, 784] size lists(tensors). One MNIST image size is 28 * 28 and we can flatten it into 784 1D arrays. ? means it is variable. So input layer receive image as flatten 1D arrays and user can pass one or more images at once. <br/><br/>
+								<span class="image main"><img src="https://i.imgur.com/3Fm4XwO.jpg" alt="Basic_MNIST_Architecture" /></span>
+								<p>
+									Above picture depict architecture of CNN MNIST model. First layer is input layer which accept user input. Input layer accept user input as [?, 28 * 28] list. Input layer forward this value to CNN layer.<br/><br/>
 
-								Second layer is only hidden layer in this model. Input layer forwards user input into hidden layer. This layer predict number by using weight and bias. This layer multiply weight with input layer and add bias. This should reduce 784 array into 10 array (0 ~ 9). So weight size is [784, 10] and bias size is [10]. Tensorflow modify weight and bias to reduce difference between predicted value and label.<br/><br/>
+									From 2nd layer to 5th layer is CNN layer. One CNN layer is consist of 1 convolution layer and 1 pulling layer. So we can say that there are 2 CNN layers. Second CNN layer forward extracted feature to ANN.<br/><br/>
 
-								Last layer is output of hidden layer which is called as output layer.
+									6th and 7th layer is ANN layer. This layer using feature which is extracted from CNN layer and classify number. 6th layer using ReLu as loss function and 7th layer using Softmax as loss function.<br/><br/>
 
-								This is the most basic architecture for MNIST problems. This architecture's accuracy is not good because architecture is too simple. Only hidden layer has weight and bias to predict number but it has only one. If we want to improve accuracy we have to increase number of hidden layer, training more and select more appropriate features.</p>
+									Last layer is called output layer, There are 10 neurons and the index of neuron which has the largest value will be the prediction of number from 0 to 9.
+								</p>
 							</article>
 
-							<!-- Work -->
-								<article id="work">
-									<h2 class="major">Upload</h2>
-									<span class="image main"><img id="preview" src="images/pic02.jpg" alt="Display Image" /></span>
-									<p>Upload Image! ML will detect your handwritten number.</p>
-									<p>Please upload image which contains 1 number, This AI is stupid...</p>
-									<input type="file" id="getfile" accept="image/*" name="" value="Upload">
-								</article>
-
-	              <script type="text/javascript">
-	                var file = document.querySelector("#getfile");
-
-	                file.onchange=function() {
-	                  var fileList = file.files;
-
-	                  var reader = new FileReader();
-	                  reader.readAsDataURL(fileList[0]);
-
-	                  reader.onload = function() {
-	                    document.querySelector("#preview").src = reader.result;
-	                  }
-	                }
-	              </script>
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">Upload</h2>
+								<span class="image main"><img src="images/pic02.jpg" alt="Display Image" /></span>
+								<p>Upload Image! ML will detect your handwritten number.</p>
+								<p>Please upload image which contains 1 number, This AI is stupid...</p>
+								<button>Upload</button>
+							</article>
 
 						<!-- About -->
 							<article id="about">

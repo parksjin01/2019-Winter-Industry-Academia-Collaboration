@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import="recomm.RecommDAO" %>
+<%@ page import="recomm.Recomm" %>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE HTML>
 <!--
 	Dimension by HTML5 UP
@@ -11,6 +17,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
 		<style media="screen">
 			div.logo::before {
 				opacity: 0;
@@ -50,11 +58,91 @@
 				display: block;
 
 			}
-
+			#del li {
+				float: right;
+				margin: 0 0.5em 0 0;
+			}
+			#dropzone
+		    {
+		        border:2px dotted #3292A2;
+		        width:100%;
+		        height:180px;
+		        line-height:180px;
+		        color:#92AAB0;
+		        text-align:center;
+		        font-size:24px;
+		        margin:0 0 12px 0;
+		    }
 		</style>
+		<script>
+
+			$(document).ready(function(){
+				var obj = $("#dropzone");
+
+			     obj.on('dragenter', function (e) {
+			          e.stopPropagation();
+			          e.preventDefault();
+			          $(this).css('border', '2px solid #5272A0');
+			     });
+
+			     obj.on('dragleave', function (e) {
+			          e.stopPropagation();
+			          e.preventDefault();
+			          $(this).css('border', '2px dotted #8296C2');
+			     });
+
+			     obj.on('dragover', function (e) {
+			          e.stopPropagation();
+			          e.preventDefault();
+			     });
+/*todo:파일 업로드해서 ajax를 통해 python으로 보내기
+ * https://bemeal2.tistory.com/83
+ * 여기 참고함
+*/
+/*
+			     obj.on('drop', function (e) {
+			          e.preventDefault();
+			          $(this).css('border', '2px dotted #8296C2');
+
+			          var files = e.originalEvent.dataTransfer.files;
+			          if(files.length < 1)
+			               return;
+
+			          F_FileMultiUpload(files, obj);
+			     });
+*/
+			});
+			
+			function edit(idx) {
+				$.ajax({
+					url:"./recommLoader?recommID="+idx,
+					type:"GET",
+					dataType:"json",
+					context:this,
+					error:function(request, status, error) {
+						alert("fail to loading information of the item");
+					},
+					success:function(data) {
+						$("#recommID").val(idx);
+						$("#recommName").val(data["name"]);
+						$("#recommUrl").val(data["url"]);
+						$("#recommIntro").text(data["intro"]);
+					}
+				});
+			}
+			function add() {
+				location.href="#admin";
+			}
+		</script>
 	</head>
 	<body class="is-preload">
-
+		
+		<%			
+			String sessionID = null;
+			if (session.getAttribute("sessionID") != null) {
+				sessionID = (String) session.getAttribute("sessionID");
+			}
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<nav id="navigator">
@@ -65,6 +153,18 @@
 							<li><span><a href="CNN_MNIST.html">CNN MNIST</a></span></li>
 							<li><span>/</span></li>
 							<li><span><a href="Image_Recognition.html">Image Recognition</a></span></li>
+							<li><span>/</span></li>
+							<%
+									if (sessionID == null) {
+							%>
+							<li><span><a href="#login">login</a></span></li>
+							<%
+									} else {
+							%>
+							<li><span><a href="./logOut.jsp">log out</a></span>
+							<%
+									}
+							%>
 						</ul>
 					<!-- </div> -->
 				</nav>
@@ -75,7 +175,7 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>CNN MNIST</h1>
+								<h1>Basic MNIST</h1>
 								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
 								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
 							</div>
@@ -84,7 +184,7 @@
 							<ul>
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#work">Upload</a></li>
-								<li><a href="#about">About</a></li>
+								<li><a href="#sites">Sites</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
@@ -96,65 +196,77 @@
 
 						<!-- Intro -->
 							<article id="intro">
-								<h2 class="major">CNN MNIST</h2>
+								<h2 class="major">Basic MNIST</h2>
 								<h4>Intro</h4>
 								<p>
-									This model is improved version of simple MNIST model (with just 1 layer).  <br/>
+									This model is basic version of MNIST model (with just 1 layer).<br/>
 									<span class="image main"><img src="https://i.imgur.com/s5DJSoM.jpg" alt="MNIST Example" /></span>
 									For example, model will classify above image as 2.<br/>
-									Simple MNIST model's accuracy was about 92% but this model can increase up to 99.2%.  <br/>
-									Then how this improved MNIST model can increase accuracy?
-								</p>
-								<h4>What is CNN?</h4>
-								<p>
-									This improved model use CNN to extract feature. When input data of ANN model is image, it's hard to select feature of image manually. To improve accuracy of ANN model when input data type is image, we can use ANN to extract feature of image automatically. CNN is basic technology to extract feature in image. In MNIST problem, input data is image of handwritten number, So we can improve accuracy by using CNN to extract feature<br/><br/>
-
-									CNN is consist of convolution layer and pooling layer. Convolution layer extract feature of image by matrix multiplication. Pooling layer is used to reduce feature size or emphasize specific feature.<br/><br/>
-
-									CNN can improve accuracy of tensorflow model which handle image data. The reason of improvement is, Fully connected layer only support 1D data and image is 2D data. We need to flatten 2D image to 1D data to use fully connected layer. In this step, spatial information of 2D image is lost. To avoid lost of spatial informations, we use CNN which extract spatial information as feature. So when we use spatial data as input, we can improve accuracy by using CNN
+									Basic MNIST model's accuracy was about 92%.<br/> It may seem very high, but it means if user upload 10 images,<br/> nearly always 1 image could be predicted as wrong value.<br/> Let's see how this basic ANN can predict hand written number.
 								</p>
 								<h4>Architecture</h4>
-								<span class="image main"><img src="https://i.imgur.com/3Fm4XwO.jpg" alt="Basic_MNIST_Architecture" /></span>
-								<p>
-									Above picture depict architecture of CNN MNIST model. First layer is input layer which accept user input. Input layer accept user input as [?, 28 * 28] list. Input layer forward this value to CNN layer.<br/><br/>
+								<span class="image main"><img src="https://i.imgur.com/QQ7A5XO.jpg" alt="Basic_MNIST_Architecture" /></span>
+								<p>There are three layers in model. First layer is input layer. Input layer receive image as [?, 784] size lists(tensors). One MNIST image size is 28 * 28 and we can flatten it into 784 1D arrays. ? means it is variable. So input layer receive image as flatten 1D arrays and user can pass one or more images at once. <br/><br/>
 
-									From 2nd layer to 5th layer is CNN layer. One CNN layer is consist of 1 convolution layer and 1 pulling layer. So we can say that there are 2 CNN layers. Second CNN layer forward extracted feature to ANN.<br/><br/>
+								Second layer is only hidden layer in this model. Input layer forwards user input into hidden layer. This layer predict number by using weight and bias. This layer multiply weight with input layer and add bias. This should reduce 784 array into 10 array (0 ~ 9). So weight size is [784, 10] and bias size is [10]. Tensorflow modify weight and bias to reduce difference between predicted value and label.<br/><br/>
 
-									6th and 7th layer is ANN layer. This layer using feature which is extracted from CNN layer and classify number. 6th layer using ReLu as loss function and 7th layer using Softmax as loss function.<br/><br/>
+								Last layer is output of hidden layer which is called as output layer.
 
-									Last layer is called output layer, There are 10 neurons and the index of neuron which has the largest value will be the prediction of number from 0 to 9.
-								</p>
+								This is the most basic architecture for MNIST problems. This architecture's accuracy is not good because architecture is too simple. Only hidden layer has weight and bias to predict number but it has only one. If we want to improve accuracy we have to increase number of hidden layer, training more and select more appropriate features.</p>
 							</article>
 
-							<!-- Work -->
-								<article id="work">
-									<h2 class="major">Upload</h2>
-									<span class="image main"><img id="preview" src="images/pic02.jpg" alt="Display Image" /></span>
-									<p>Upload Image! ML will detect your handwritten number.</p>
-									<p>Please upload image which contains 1 number, This AI is stupid...</p>
-									<input type="file" id="getfile" accept="image/*" name="" value="Upload">
-								</article>
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">Upload</h2>
+								<div id="dropzone">Drag & Drop Your Image Here</div>
+								<p>Upload Image! ML will detect your handwritten number.</p>
+								<p>Please upload image which contains 1 number, This AI is really stupid...</p>
+								<button>Upload</button>
+							</article>
 
-	              <script type="text/javascript">
-	                var file = document.querySelector("#getfile");
-
-	                file.onchange=function() {
-	                  var fileList = file.files;
-
-	                  var reader = new FileReader();
-	                  reader.readAsDataURL(fileList[0]);
-
-	                  reader.onload = function() {
-	                    document.querySelector("#preview").src = reader.result;
-	                  }
-	                }
-	              </script>
-
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+						<!-- Sites -->
+							<article id="sites">
+								<h2 class="major">sites</h2>
+								
+								<%
+										RecommDAO recommDAO = new RecommDAO();
+										ArrayList<Recomm> list = recommDAO.getList();
+										for (int i=0; i<list.size(); i++) {
+								%>
+								
+									<div>
+									<ul class="icons">							
+										
+										<%
+											if (sessionID != null){	
+										%>	
+												<div style="float: left;"><h3><a href="<%=list.get(i).getUrl() %>"><%=list.get(i).getName() %></a></h3></div>						
+												<div style="text-align:right">
+													<li><a onclick="return confirm('Do you want to delete <%=list.get(i).getName() %>?')" href="deleteAction.jsp?recommID=<%=list.get(i).getRecommID()%>" class="icon fa-trash-o"><span class="label">delete</span></a></li>
+													<li><a href="#edit" onclick="edit(<%=list.get(i).getRecommID() %>)" class="icon fa-pencil"><span class="label">edit</span></a></li>		
+												</div>
+										<%
+											} else {
+										%>		
+												<div style="text-align: left;"><h3><a href="<%=list.get(i).getUrl() %>"><%=list.get(i).getName() %></a></h3></div>
+										<%	}
+										%>			
+										<blockquote><%=list.get(i).getIntro() %></blockquote>															
+									</ul>
+									
+									</div>
+																
+								<%		} %>
+								
+								<%		
+										if (sessionID != null) {
+								%>
+											<div style="text-align: center;"><button onclick="add()"><span class="icon fa-plus"> add</span></button></div>
+								<%
+										}
+								%>
+								
+								
 							</article>
 
 						<!-- Contact -->
@@ -429,7 +541,75 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								</section>
 
 							</article>
-
+						<!-- login -->
+							<article id="login">
+								<h2 class="major">Login</h2>
+								<form method="post" action="./loginAction.jsp">
+									<div class="fields">
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field half">
+											<label for="pw">Password</label>
+											<input type="password" name="pw" id="pw" />
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="login" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>			
+								</form>							
+							</article>
+						<!-- admin -->
+							<article id="admin">
+								<h2 class="major">sites admin</h2>
+								<form method="post" action="./recommRegister">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Site name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="url">URL</label>
+											<input type="text" name="url" id="url" />
+										</div>
+										<div class="field">
+											<label for="intro">Intro</label>
+											<textarea name="intro" id="intro" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="register" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>			
+								</form>
+							</article>
+						<!-- edit -->
+							<article id="edit">
+								<h2 class="major">Edit List</h2>
+								<form method="post" action="./recommUpdate">
+									<input type="text" name="recommID" id="recommID" style="display:none;"/>
+									<div class="fields">
+										<div class="field half">
+											<label for="recommName">Site name</label>
+											<input type="text" name="recommName" id="recommName"/>
+										</div>
+											<div class="field half">
+												<label for="recommUrl">URL</label>
+												<input type="text" name="recommUrl" id="recommUrl" />
+											</div>
+										<div class="field">
+											<label for="recommIntro">Intro</label>
+											<textarea name="recommIntro" id="recommIntro" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="edit" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>			
+								</form>
+							</article>
 					</div>
 
 				<!-- Footer -->
