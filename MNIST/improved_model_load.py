@@ -29,6 +29,7 @@ def max_pool_2x2(x):
 
 
 def predict_number(image_file, stored_model_name = "MNIST_MODEL_IMPROVED"):
+  global loaded
   x = tf.placeholder(tf.float32, shape=[None, 784])
   y_ = tf.placeholder(tf.float32, shape=[None, 10])
 

@@ -74,9 +74,10 @@ train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
 
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-sess.run(tf.global_variables_initializer())
+# sess.run(tf.global_variables_initializer())
 
 saver = tf.train.Saver()
+saver.restore(sess, "./MNIST_MODEL_IMPROVED")
 
 for i in range(10001):
   batch = mnist.train.next_batch(50)
