@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5810b9f-7db7-4867-92b5-8bf9b0866a60" name="Default" comment="" />
+    <list default="true" id="f5810b9f-7db7-4867-92b5-8bf9b0866a60" name="Default" comment="caltech101_keras:  a code making an image classifying learning model for 5 objects including &quot;chair&quot;,&quot;camera&quot;,&quot;butterfly&quot;,&quot;elephant&quot;,&quot;flamingo&quot;&#10;caltech101_keras2: making caltech101_keras model or using an image classifying model and extracting model&#10;caltech101_makedata: pre-processing images">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="preprocessing.py" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MNIST/preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="418">
               <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding>
                 <element signature="e#26#36#0" expanded="true" />
@@ -23,10 +24,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="one_hot_encoding.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MNIST/one_hot_encoding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="247">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#26#36#0" expanded="true" />
@@ -35,27 +36,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simple_model_load.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MNIST/simple_model_load.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="437">
+                <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simple_model_learning.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MNIST/simple_model_learning.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="190">
+              <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VMware_vCloud.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MNIST/VMware_vCloud.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -77,6 +76,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -89,6 +93,7 @@
         <option value="$PROJECT_DIR$/MNIST/model_load.py" />
         <option value="$PROJECT_DIR$/MNIST/simple_model_learning.py" />
         <option value="$PROJECT_DIR$/MNIST/simple_model_load.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -101,7 +106,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -112,21 +116,28 @@
             <path>
               <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="Image" type="462c0819:PsiDirectoryNode" />
+              <item name="Caltech101" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST" type="462c0819:PsiDirectoryNode" />
+              <item name="Caltech101" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Samsung\PycharmProjects\2019-Winter-Industry-Academia-Collaboration\Caltech101" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -158,6 +169,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="model_load" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="2019-Winter-Industry-Academia-Collaboration" />
@@ -176,6 +190,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="one_hot_encoding" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="2019-Winter-Industry-Academia-Collaboration" />
@@ -194,6 +211,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="2019-Winter-Industry-Academia-Collaboration" />
@@ -212,6 +232,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.preprocessing" />
@@ -239,50 +262,53 @@
       <option name="presentableId" value="Default" />
       <updated>1548030963967</updated>
     </task>
+    <task id="LOCAL-00001" summary="caltech101_keras:  a code making an image classifying learning model for 5 objects including &quot;chair&quot;,&quot;camera&quot;,&quot;butterfly&quot;,&quot;elephant&quot;,&quot;flamingo&quot;&#10;caltech101_keras2: making caltech101_keras model or using an image classifying model and extracting model&#10;caltech101_makedata: pre-processing images">
+      <created>1548138099038</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548138099039</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
-      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24904943" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32965517" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="3" visible="true" weight="0.32884097" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32965517" />
       <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32965517" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="0" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32965517" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="caltech101_keras:  a code making an image classifying learning model for 5 objects including &quot;chair&quot;,&quot;camera&quot;,&quot;butterfly&quot;,&quot;elephant&quot;,&quot;flamingo&quot;&#10;caltech101_keras2: making caltech101_keras model or using an image classifying model and extracting model&#10;caltech101_makedata: pre-processing images" />
+    <option name="LAST_COMMIT_MESSAGE" value="caltech101_keras:  a code making an image classifying learning model for 5 objects including &quot;chair&quot;,&quot;camera&quot;,&quot;butterfly&quot;,&quot;elephant&quot;,&quot;flamingo&quot;&#10;caltech101_keras2: making caltech101_keras model or using an image classifying model and extracting model&#10;caltech101_makedata: pre-processing images" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MNIST/user_input/VMware_vCloud.jpg_preprocessed.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MNIST/user_input/VMware_vCloud.jpg_preprocessed.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MNIST/user_input/VMware_vCloud.jpg_preprocessed.jpeg" />
+    <entry file="file://$PROJECT_DIR$/MNIST/user_input/VMware_vCloud.jpg_preprocessed.png" />
     <entry file="file://$PROJECT_DIR$/MNIST/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Image/MNIST Model.jpeg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/MNIST/user_input/1.jpeg_preprocessed.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MNIST/user_input/1.jpeg_preprocessed.png" />
     <entry file="file://$PROJECT_DIR$/TC/1.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -345,7 +371,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MNIST/preprocessing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="418">
           <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding>
             <element signature="e#26#36#0" expanded="true" />
@@ -375,7 +401,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MNIST/one_hot_encoding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="247">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#26#36#0" expanded="true" />
@@ -397,6 +423,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="437">
+            <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
