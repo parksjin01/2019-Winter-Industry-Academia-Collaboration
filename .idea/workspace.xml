@@ -24,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/MNIST/improved_model_load.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="110" column="19" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="19" />
+              <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -109,12 +109,6 @@
               <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
               <item name="MNIST" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Winter-Industry-Academia-Collaboration" type="462c0819:PsiDirectoryNode" />
-              <item name="MNIST" type="462c0819:PsiDirectoryNode" />
-              <item name="user_input" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -261,15 +255,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2494043" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32965517" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32965517" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32965517" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32965517" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32965517" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -447,7 +442,7 @@
     <entry file="file://$PROJECT_DIR$/MNIST/improved_model_load.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="19" />
+          <caret line="110" column="22" selection-start-line="110" selection-start-column="22" selection-end-line="110" selection-end-column="22" />
         </state>
       </provider>
     </entry>

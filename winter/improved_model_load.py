@@ -1,1 +1,0 @@
-/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/improved_model_load.py
