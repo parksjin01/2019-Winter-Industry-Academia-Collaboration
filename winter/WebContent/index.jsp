@@ -171,7 +171,6 @@
 				}
 				
 				var data = {'path': path};
-				alert(data);
 				var jythonURL = "./imageClas";
 				$.ajax({
 					url: jythonURL,
@@ -187,7 +186,11 @@
 		            }
 				});
 			}
-
+			function reset() {
+				$('#dropzone').show();
+				$('#uploadImg').attr('src', '');
+				$('#upload').attr('style', 'display:none');
+			}
 		</script>
 	</head>
 	<body class="is-preload">
@@ -277,7 +280,10 @@
 								<span id="upload" class="image main" style="display:none;"><img id="uploadImg" src="" alt="Display Image" /></span>
 								<p>Upload Image! ML will detect your handwritten number.</p>
 								<p>Please upload image which contains 1 number, This AI is really stupid...</p>
-								<button onclick="classifier()">classify</button>
+								<ul class="actions">
+									<li><button onclick="classifier()">classify</button></li>
+									<li><button onclick="reset()"/>Reset</li>
+								</ul>
 							</article>
 
 						<!-- Sites -->
