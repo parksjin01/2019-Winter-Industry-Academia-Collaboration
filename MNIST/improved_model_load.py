@@ -89,12 +89,12 @@ def predict_number(image_file, stored_model_name = "MNIST_MODEL_IMPROVED"):
   #     x: mnist.test.images[0], y_: mnist.test.labels[0], keep_prob: 1.0}))
 
   data = preprocessing.resizing(image_file, (28, 28))
+  print data
   data = flatten(one_hot_encoding.read(data))
   # print data
   # print list(data[0])
 
   result = y_conv.eval(feed_dict = {x: data, keep_prob: 1}).tolist()
-  print result
   return result[0].index(max(result[0]))
 
 
@@ -108,6 +108,6 @@ if __name__ == '__main__':
   else:
       result = "USAGE: ./model_load.py <image name> <Trained model --optional>"
 
-  print result
+  print "Prediction:", result
 
   # print predict_number("../TC/3-6.jpg")

@@ -15,11 +15,11 @@ sys.setdefaultencoding('utf-8')
 
 def resizing(image_name, size):
 
-    processed = os.listdir("./user_input")
+    processed = os.listdir("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input")
     print processed
     if image_name.split("/")[-1] + "_preprocessed.png" in processed:
         print("Image loaded successfully")
-        return "./user_input/" + image_name.split("/")[-1] + "_preprocessed.png"
+        return "/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input/" + image_name.split("/")[-1] + "_preprocessed.png"
     if type(size) != type(()):
         print "Size should be tuple (width, height)"
         return 0
@@ -40,9 +40,9 @@ def resizing(image_name, size):
         # res = filling(res, 2)
         # res = filling(res, 3)
         image_name = image_name.split("/")[-1]
-        res.save("./user_input/" + image_name + "_preprocessed.png", "PNG")
+        res.save("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input/" + image_name + "_preprocessed.png", "PNG")
         print("Image preprocessed successfully")
-        return "./user_input/" + image_name.strip("./") + "_preprocessed.png"
+        return "/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input/" + image_name.strip("./") + "_preprocessed.png"
     except IOError, e:
         print e
         print("Can't find Image")
