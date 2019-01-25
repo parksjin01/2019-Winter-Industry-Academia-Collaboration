@@ -46,7 +46,6 @@ public class RecommLoader extends HttpServlet {
 		obj.put("url", recomm.getUrl());
 		obj.put("intro", recomm.getIntro());
 		
-		System.out.println("³»¿ë : "+recomm.getIntro());
 
 		response.setContentType("application/x-json; charset=UTF-8");
 		response.getWriter().print(obj);

@@ -76,43 +76,6 @@
 		</style>
 		<script>
 
-			$(document).ready(function(){
-				var obj = $("#dropzone");
-
-			     obj.on('dragenter', function (e) {
-			          e.stopPropagation();
-			          e.preventDefault();
-			          $(this).css('border', '2px solid #5272A0');
-			     });
-
-			     obj.on('dragleave', function (e) {
-			          e.stopPropagation();
-			          e.preventDefault();
-			          $(this).css('border', '2px dotted #8296C2');
-			     });
-
-			     obj.on('dragover', function (e) {
-			          e.stopPropagation();
-			          e.preventDefault();
-			     });
-/*todo:파일 업로드해서 ajax를 통해 python으로 보내기
- * https://bemeal2.tistory.com/83
- * 여기 참고함
-*/
-/*
-			     obj.on('drop', function (e) {
-			          e.preventDefault();
-			          $(this).css('border', '2px dotted #8296C2');
-
-			          var files = e.originalEvent.dataTransfer.files;
-			          if(files.length < 1)
-			               return;
-
-			          F_FileMultiUpload(files, obj);
-			     });
-*/
-			});
-			
 			function edit(idx) {
 				$.ajax({
 					url:"./recommLoader?recommID="+idx,
@@ -133,6 +96,98 @@
 			function add() {
 				location.href="#admin";
 			}
+			
+			
+			$(document).ready(function(){
+				var obj = $("#dropzone");
+
+			     obj.on('dragenter', function (e) {
+			          e.stopPropagation();
+			          e.preventDefault();
+			          $(this).css('border', '2px solid #5272A0');
+			     });
+
+			     obj.on('dragleave', function (e) {
+			          e.stopPropagation();
+			          e.preventDefault();
+			          $(this).css('border', '2px dotted #8296C2');
+			     });
+
+			     obj.on('dragover', function (e) {
+			          e.stopPropagation();
+			          e.preventDefault();
+			     });
+
+			     obj.on('drop', function (e) {
+			          e.preventDefault();
+			          $(this).css('border', '2px dotted #8296C2');
+
+			          var files = e.originalEvent.dataTransfer.files;
+			          if(files.length < 1)
+			               return;
+
+			          F_FileUpload(files, obj);
+			     });
+
+			});		
+			
+			// 파일 업로드
+			function F_FileUpload(files, obj) {
+			     if(confirm("Do you want to upload \n'" + files[0].name + "'?") ) {
+			         var data = new FormData();
+
+			         data.append('file', files[0]);
+			         var url = "./imageProc";
+			         $.ajax({
+			            url: url,
+			            method: 'post',
+			            data: data,
+			            dataType: 'json',
+			            processData: false,
+			            contentType: false,
+			            error:function(request, status, error) {
+							alert(request + "\n" + status + "\n" + error);
+						},
+			            success: function(res) {			            	
+			            	$('#dropzone').hide();
+			            	$('#uploadImg').attr('src', res["path"]);
+			            	$('#upload').attr('style', 'display:active');
+			            }
+			         });
+			     }
+			}
+			
+			// Jython 서블릿으로 보내기
+			
+			// TODO:classify 버튼 누르면 동자갛게
+			function classifier() {
+				
+				var obj = $('#uploadImg');
+				var path = obj.attr('src');
+				
+				if (path == "") {
+					alert('input image file please');
+					return;
+				}
+				
+				var data = {'path': path};
+				alert(data);
+				var jythonURL = "./imageClas";
+				$.ajax({
+					url: jythonURL,
+					method: 'post',
+					data: data,
+					dataType: 'json',
+					context: this,
+		            error:function(request, status, error) {
+						alert(request + "\n" + status + "\n" + error);
+					},
+		            success: function(res) {
+		            	alert(res['path']);
+		            }
+				});
+			}
+
 		</script>
 	</head>
 	<body class="is-preload">
@@ -219,9 +274,10 @@
 							<article id="work">
 								<h2 class="major">Upload</h2>
 								<div id="dropzone">Drag & Drop Your Image Here</div>
+								<span id="upload" class="image main" style="display:none;"><img id="uploadImg" src="" alt="Display Image" /></span>
 								<p>Upload Image! ML will detect your handwritten number.</p>
 								<p>Please upload image which contains 1 number, This AI is really stupid...</p>
-								<button>Upload</button>
+								<button onclick="classifier()">classify</button>
 							</article>
 
 						<!-- Sites -->
@@ -275,12 +331,12 @@
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<label for="contactName">Name</label>
+											<input type="text" name="contactName" id="contactName" />
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<input type="text" name="contactEmail" id="contactEmail" />
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
