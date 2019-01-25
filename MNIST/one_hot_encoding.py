@@ -12,7 +12,7 @@ sys.setdefaultencoding('utf-8')
 #   List of one-hot encoding
 def read(image_name):
     try:
-        print image_name
+        # print image_name
         img = Image.open(image_name)
         pixel = img.load()
         size = img.size
@@ -27,7 +27,7 @@ def read(image_name):
                     tmp[-1] = 0.0
             one_hot.append(tmp)
 
-        print one_hot
+        # print one_hot
         return one_hot
     except IOError:
         print("Can't find image file")
