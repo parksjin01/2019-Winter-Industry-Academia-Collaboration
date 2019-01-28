@@ -35,8 +35,9 @@ def predict_animal(image_file, categories, stored_model_name = "MNIST_MODEL_IMPR
     # X_test  = X_test.astype("float")  / 256
     # print('X_train shape:', X_train.shape)
 
+    print(image_file)
     preprocessing.resizing(image_file, size=(image_w, image_h))
-    X_train = np.load("./image/" + image_file.split("/")[-1] + ".npy")
+    X_train = np.load("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/Image_Recognition/image" + image_file.split("/")[-1] + ".npy")
 
     # 모델 구축하기
     model = Sequential()

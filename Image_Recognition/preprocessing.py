@@ -30,4 +30,4 @@ def resizing(image_name, size):
 
     # X = np.array(X)
 
-    np.save("./image/" + image_name.split("/")[-1] + ".npy", X)
+    np.save("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/Image_Recognition/image" + image_name.split("/")[-1] + ".npy", X)
