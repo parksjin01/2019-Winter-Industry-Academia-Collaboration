@@ -206,11 +206,11 @@
 				<nav id="navigator">
 					<!-- <div> -->
 						<ul>
-							<li><span><a href="Basic_MNIST.html">Basic MNIST</a></span></li>
+							<li><span><a href="./Basic_MNIST.jsp">Basic MNIST</a></span></li>
 							<li><span>/</span></li>
-							<li><span><a href="CNN_MNIST.html">CNN MNIST</a></span></li>
+							<li><span><a href="./CNN_MNIST.jsp">CNN MNIST</a></span></li>
 							<li><span>/</span></li>
-							<li><span><a href="Image_Recognition.html">Image Recognition</a></span></li>
+							<li><span><a href="./Image_Recognition.jsp">Image Recognition</a></span></li>
 							<li><span>/</span></li>
 							<%
 									if (sessionID == null) {
