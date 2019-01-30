@@ -36,7 +36,7 @@ def predict_number(image_file, stored_model_name = "MNIST_MODEL_SIMPLE"):
     sess.run(init)
 
     # Load the saved trained model
-    saver.restore(sess, "./MNIST_MODEL_SIMPLE")
+    saver.restore(sess, stored_model_name)
 
     data = preprocessing.resizing(image_file, (28, 28))
     print data
