@@ -171,7 +171,7 @@
 				}
 				
 				var data = {'path': path};
-				var jythonURL = "./imageClas";
+				var jythonURL = "./basicMNIST";
 				$.ajax({
 					url: jythonURL,
 					method: 'post',
