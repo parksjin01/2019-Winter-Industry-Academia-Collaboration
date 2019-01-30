@@ -3,7 +3,9 @@ import sys
 import one_hot_encoding
 import preprocessing
 import numpy
+import os
 
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
 flatten = lambda x:numpy.array(x).reshape((1, 784))
 
 def predict_number(image_file, stored_model_name = "MNIST_MODEL_SIMPLE"):
@@ -36,7 +38,7 @@ def predict_number(image_file, stored_model_name = "MNIST_MODEL_SIMPLE"):
     sess.run(init)
 
     # Load the saved trained model
-    saver.restore(sess, stored_model_name)
+    saver.restore(sess, file_path + "/" + stored_model_name)
 
     data = preprocessing.resizing(image_file, (28, 28))
     print data
@@ -59,5 +61,3 @@ if __name__ == '__main__':
       result = "USAGE: ./model_load.py <image name> <Trained model --optional>"
 
   print "Prediction:", result
-
-print predict_number("../TC/3-6.jpg")

@@ -9,6 +9,8 @@ import numpy as np
 import os
 import image_recognition_makedata
 
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
+
 # 카테고리 지정하기
 categories = ["kangaroo", "dolphin", "butterfly", "elephant", "flamingo"]
 nb_classes = len(categories)
@@ -19,10 +21,10 @@ image_h = 64
 
 # 데이터 불러오기
 try:
-    X_train, X_test, y_train, y_test = np.load("./image/" + "-".join(categories) + ".npy")
+    X_train, X_test, y_train, y_test = np.load(file_path + "/image/" + "-".join(categories) + ".npy")
 except:
     image_recognition_makedata.make_data(categories)
-    X_train, X_test, y_train, y_test = np.load("./image/" + "-".join(categories) + ".npy")
+    X_train, X_test, y_train, y_test = np.load(file_path + "/image/" + "-".join(categories) + ".npy")
 
 # 데이터 정규화하기
 X_train = X_train.astype("float") / 256
@@ -57,7 +59,7 @@ model.compile(loss='binary_crossentropy',
 
 # 모델 훈련하기
 # 기존에 학습된 모델 읽어 들이기
-hdf5_file = "./image/" + "-".join(categories) + ".hdf5"
+hdf5_file = file_path + "/image/" + "-".join(categories) + ".hdf5"
 if os.path.exists(hdf5_file):
     model.load_weights(hdf5_file)
 # 학습한 모델을 파일로 저장하기
@@ -77,7 +79,7 @@ for i, v in enumerate(pre):
     print("[NG]", categories[pre_ans], "!=", categories[ans])
     print(v)
     # 이미지 출력하기
-    fname = "image/error/" + str(i) + "-" + categories[pre_ans] + \
+    fname = file_path + "/image/error/" + str(i) + "-" + categories[pre_ans] + \
         "-ne-" + categories[ans] + ".png"
     dat *= 256
     img = Image.fromarray(np.uint8(dat))

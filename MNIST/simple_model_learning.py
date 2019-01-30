@@ -2,6 +2,10 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 import tensorflow as tf
+import os
+
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
+
 x = tf.placeholder(tf.float32, [None, 784])
 
 # Layer1 parameter and bias
@@ -43,4 +47,4 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
 
 # Save that model
-saver.save(sess, "./MNIST_MODEL_SIMPLE")
+saver.save(sess, file_path + "/MNIST_MODEL_SIMPLE")

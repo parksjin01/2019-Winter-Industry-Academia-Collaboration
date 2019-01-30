@@ -5,6 +5,8 @@ import os, glob
 import numpy as np
 from sklearn.model_selection import train_test_split
 
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
+
 def resizing(image_name, size):
     if len(size) != 2 or type(size) != type(()):
         print "Size parameter is wrong"
@@ -30,4 +32,4 @@ def resizing(image_name, size):
 
     # X = np.array(X)
 
-    np.save("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/Image_Recognition/image" + image_name.split("/")[-1] + ".npy", X)
+    np.save(file_path + "/image" + image_name.split("/")[-1] + ".npy", X)

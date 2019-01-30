@@ -9,6 +9,9 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 import tensorflow as tf
+import os
+
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
 sess = tf.InteractiveSession()
 
 def weight_variable(shape):
@@ -77,7 +80,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 # sess.run(tf.global_variables_initializer())
 
 saver = tf.train.Saver()
-saver.restore(sess, "./MNIST_MODEL_IMPROVED")
+saver.restore(sess, file_path + "/MNIST_MODEL_IMPROVED")
 
 # for i in range(10001):
 #   batch = mnist.train.next_batch(50)

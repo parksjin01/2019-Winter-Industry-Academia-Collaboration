@@ -11,6 +11,8 @@ import image_recognition_makedata
 import preprocessing
 import sys
 
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
+
 def predict_animal(image_file, categories, stored_model_name = "MNIST_MODEL_IMPROVED"):
     # 카테고리 지정하기
     nb_classes = len(categories)
@@ -37,7 +39,7 @@ def predict_animal(image_file, categories, stored_model_name = "MNIST_MODEL_IMPR
 
     print(image_file)
     preprocessing.resizing(image_file, size=(image_w, image_h))
-    X_train = np.load("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/Image_Recognition/image" + image_file.split("/")[-1] + ".npy")
+    X_train = np.load(file_path + "/image" + image_file.split("/")[-1] + ".npy")
 
     # 모델 구축하기
     model = Sequential()
@@ -68,7 +70,7 @@ def predict_animal(image_file, categories, stored_model_name = "MNIST_MODEL_IMPR
     # 모델 훈련하기
     # 기존에 학습된 모델 읽어 들이기
     hdf5_file = stored_model_name
-    model.load_weights(hdf5_file)
+    model.load_weights(file_path + "/" + hdf5_file)
 
     # 모델 평가하기
     # 예측하기

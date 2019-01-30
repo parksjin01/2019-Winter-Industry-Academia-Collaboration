@@ -6,6 +6,8 @@ import pprint
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
+
 # Resizing image to fit tensorflow model input size
 # Parameter
 #     image_name: File name of user input
@@ -15,11 +17,11 @@ sys.setdefaultencoding('utf-8')
 
 def resizing(image_name, size):
 
-    processed = os.listdir("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input")
+    processed = os.listdir(file_path + "/user_input")
     print processed
     if image_name.split("/")[-1] + "_preprocessed.png" in processed:
         print("Image loaded successfully")
-        return "/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input/" + image_name.split("/")[-1] + "_preprocessed.png"
+        return file_path + "/user_input/" + image_name.split("/")[-1] + "_preprocessed.png"
     if type(size) != type(()):
         print "Size should be tuple (width, height)"
         return 0
@@ -40,9 +42,9 @@ def resizing(image_name, size):
         # res = filling(res, 2)
         # res = filling(res, 3)
         image_name = image_name.split("/")[-1]
-        res.save("/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input/" + image_name + "_preprocessed.png", "PNG")
+        res.save(file_path + "/user_input/" + image_name + "_preprocessed.png", "PNG")
         print("Image preprocessed successfully")
-        return "/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/MNIST/user_input/" + image_name.strip("./") + "_preprocessed.png"
+        return file_path + "/user_input/" + image_name.strip("./") + "_preprocessed.png"
     except IOError, e:
         print e
         print("Can't find Image")

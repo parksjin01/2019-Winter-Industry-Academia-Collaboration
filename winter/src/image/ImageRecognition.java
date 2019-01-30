@@ -1,6 +1,7 @@
 package image;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -56,11 +57,21 @@ public class ImageRecognition extends HttpServlet {
 		String line = null;
 		String result = null;
 		try{
+			String pythonScriptPath = "";
+			String[] splitedPath = imagePath.split("/");
+			for (String tmp : splitedPath) {
+				if (tmp.equalsIgnoreCase(".metadata"))
+					break;
+				pythonScriptPath += tmp + "/";
+			}
+			
+			System.out.println(pythonScriptPath);
+
 			String[] command = {"python", 
-					"/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/Image_Recognition/image_recognition_load.py", 
+					pythonScriptPath + "Image_Recognition/image_recognition_load.py", 
 					imagePath, 
 					"kangaroo dolphin butterfly elephant flamingo", 
-					"/Users/Knight/Documents/GitHub/2019-Winter-Industry-Academia-Collaboration/Image_Recognition/image/kangaroo-dolphin-butterfly-elephant-flamingo.hdf5"};
+					"image/kangaroo-dolphin-butterfly-elephant-flamingo.hdf5"};
 			String[] env = {"PATH=/opt/local/bin:/opt/local/sbin:/Users/Knight/Library/Android/sdk/tools:/Users/Knight/Library/Android/sdk/platform-tools:/usr/sbin:/usr/bin:/sbin:/bin:/Users/Knight/test:/Users/Knight/ns3.28:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Applications/Wireshark.app/Contents/MacOS",
 					"PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Applications/Wireshark.app/Contents/MacOS"};
 		    Process p = Runtime.getRuntime().exec(command, env);

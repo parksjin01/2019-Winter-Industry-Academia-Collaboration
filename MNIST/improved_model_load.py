@@ -3,6 +3,7 @@
 # Code is quoted from above site
 # 위의 사이트에서 코드 인용
 
+import os
 import sys
 import numpy
 import one_hot_encoding
@@ -10,6 +11,7 @@ import preprocessing
 import tensorflow as tf
 sess = tf.InteractiveSession()
 
+file_path = (os.path.dirname(os.path.realpath(__file__)) )
 flatten = lambda x:numpy.array(x).reshape((1, 784))
 
 def weight_variable(shape):
@@ -80,7 +82,7 @@ def predict_number(image_file, stored_model_name = "MNIST_MODEL_IMPROVED"):
 
   saver = tf.train.Saver()
 
-  saver.restore(sess, stored_model_name)
+  saver.restore(sess, file_path + "/" + stored_model_name)
 
   # print list(mnist.test.images[0])
   # print mnist.test.labels[0]
@@ -99,6 +101,7 @@ def predict_number(image_file, stored_model_name = "MNIST_MODEL_IMPROVED"):
 
 
 if __name__ == '__main__':
+  print os.getcwd()
   if len(sys.argv) == 2:
     result = predict_number(sys.argv[1])
 

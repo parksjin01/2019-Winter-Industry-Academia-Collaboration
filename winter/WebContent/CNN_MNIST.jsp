@@ -289,7 +289,6 @@
 									<h2 class="major">Upload</h2>
 									<div id="dropzone">Drag & Drop Your Image Here</div>
 									<span id="upload" class="image main" style="display:none;"><img id="uploadImg" src="" alt="Display Image" /></span>
-									<span class="image main"><img id="preview" src="images/pic02.jpg" alt="Display Image" /></span>
 									<p>Upload Image! ML will detect your handwritten number.</p>
 									<p>Please upload image which contains 1 number, This AI is stupid...</p>
 									<ul class="actions">
