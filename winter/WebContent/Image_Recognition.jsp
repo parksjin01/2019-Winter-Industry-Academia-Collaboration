@@ -234,7 +234,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Image Recognition</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
+								<p>Image Recognition is little bit more complicated ML service than MNIST, It classify animal in the picture<br />
 								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
 							</div>
 						</div>

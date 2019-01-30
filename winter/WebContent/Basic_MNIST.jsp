@@ -234,8 +234,8 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Basic MNIST</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+								<p>MNIST is basic example of ML service, It will classify hand written number image.<br />
+								This Basic MNIST model use single hidden layer</p>
 							</div>
 						</div>
 						<nav>
