@@ -30,7 +30,12 @@ Also provide links of ML lecture which is famous for ML beginners
 
 ###### Architecture
 
--	TODO
+![architecture](https://i.imgur.com/lDXCttm.jpg)
+
+-	Using WebtoB as web server  
+-	Using Jeus as WAS  
+-	Using Tibero as database  
+-	WebtoB, Jeus, Tibero is product of company which we are doing industry academia collaboration.  
 
 ###### Functions
 
