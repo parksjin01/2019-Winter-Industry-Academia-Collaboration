@@ -22,7 +22,7 @@ public class UserDAO {
 	
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629/tibero";
+			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
 			String dbID = "jw";
 			String dbPassword = "root";
 			Class.forName("com.tmax.tibero.jdbc.Driver");
