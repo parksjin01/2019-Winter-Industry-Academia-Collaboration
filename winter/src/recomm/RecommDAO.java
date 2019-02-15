@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/* tbJDBC package */
+import com.tmax.tibero.jdbc.*;
+import com.tmax.tibero.jdbc.ext.*;
+
 public class RecommDAO {
 	
 	private Connection conn;
@@ -13,10 +17,10 @@ public class RecommDAO {
 	
 	public RecommDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/winter?serverTimezone=UTC";
-			String dbID = "root";
+			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629/tibero";
+			String dbID = "jw";
 			String dbPassword = "root";
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.tmax.tibero.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
 			e.printStackTrace();

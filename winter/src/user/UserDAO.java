@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/* tbJDBC package */
+import com.tmax.tibero.jdbc.*;
+import com.tmax.tibero.jdbc.ext.*;
+
 public class UserDAO {
 
 	public final static int LOGIN_SUCCESS = 1;
@@ -18,10 +22,10 @@ public class UserDAO {
 	
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/winter?serverTimezone=UTC";
-			String dbID = "root";
+			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629/tibero";
+			String dbID = "jw";
 			String dbPassword = "root";
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.tmax.tibero.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,7 +33,7 @@ public class UserDAO {
 	}
 	
 	public int login(User user) {
-		String SQL = "SELECT pw FROM user WHERE email = ?";
+		String SQL = "SELECT pw FROM user_list WHERE email = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user.getEmail());
@@ -50,7 +54,7 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String SQL = "INSERT INTO user VALUES (0, 0, ?, ?, ?, now())";
+		String SQL = "INSERT INTO user_list VALUES (user_id_increment, 0, ?, ?, ?, systimestamp)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(2, user.getEmail());
@@ -64,7 +68,7 @@ public class UserDAO {
 	
 	
 	public void setUser(User user) {
-		String SQL = "SELECT * FROM user WHERE email = ?";
+		String SQL = "SELECT * FROM user_list WHERE email = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user.getEmail());
