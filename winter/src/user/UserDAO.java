@@ -5,10 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/* tbJDBC package */
-import com.tmax.tibero.jdbc.*;
-import com.tmax.tibero.jdbc.ext.*;
-
 public class UserDAO {
 
 	public final static int LOGIN_SUCCESS = 1;

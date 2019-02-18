@@ -6,10 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-/* tbJDBC package */
-import com.tmax.tibero.jdbc.*;
-import com.tmax.tibero.jdbc.ext.*;
-
 public class RecommDAO {
 	
 	private Connection conn;
