@@ -42,13 +42,8 @@ public class ImageClas extends HttpServlet {
 		
 		String path = (String)request.getParameter("path");
 		ServletContext context = getServletContext();
-		String imagePath = context.getRealPath(path);	// �̹��� ���� ������
+		String imagePath = context.getRealPath(path);	
 		
-		/*
-		 * TODO:jython�� ���� python ���ϰ� ����
-		 * 
-		 */
-
 		String line = null;
 		String result = null;
 		try{
@@ -86,7 +81,6 @@ public class ImageClas extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		// ������ ���� (json ���·�)
 		JSONObject obj = new JSONObject();
 		obj.put("path", result);
 		

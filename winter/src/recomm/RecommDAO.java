@@ -31,12 +31,12 @@ public class RecommDAO {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;	// 첫번째 게시물인 경우
+			return 1;	// first upload
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public int register(String name, String url, String intro) {
@@ -52,7 +52,7 @@ public class RecommDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public Recomm getRecomm(int recommID) {
@@ -89,7 +89,7 @@ public class RecommDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public int delete(int recommID) {
@@ -102,7 +102,7 @@ public class RecommDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public ArrayList<Recomm> getList() {

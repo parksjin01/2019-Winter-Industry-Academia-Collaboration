@@ -44,12 +44,7 @@ public class ImageRecognition extends HttpServlet {
 		
 		String path = (String)request.getParameter("path");
 		ServletContext context = getServletContext();
-		String imagePath = context.getRealPath(path);	// �̹��� ���� ������
-		
-		/*
-		 * TODO:jython�� ���� python ���ϰ� ����
-		 * 
-		 */
+		String imagePath = context.getRealPath(path);	
 
 		String line = null;
 		String result = null;
@@ -89,7 +84,6 @@ public class ImageRecognition extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		// ������ ���� (json ���·�)
 		JSONObject obj = new JSONObject();
 		obj.put("path", result);
 		
