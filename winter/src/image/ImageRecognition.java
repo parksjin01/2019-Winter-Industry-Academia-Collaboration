@@ -1,13 +1,11 @@
 package image;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +15,6 @@ import org.json.simple.JSONObject;
 /**
  * Servlet implementation class ImageRecognition
  */
-@WebServlet("/imageRecognition")
 public class ImageRecognition extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -47,12 +44,7 @@ public class ImageRecognition extends HttpServlet {
 		
 		String path = (String)request.getParameter("path");
 		ServletContext context = getServletContext();
-		String imagePath = context.getRealPath(path);	// �̹��� ���� ������
-		
-		/*
-		 * TODO:jython�� ���� python ���ϰ� ����
-		 * 
-		 */
+		String imagePath = context.getRealPath(path);	
 
 		String line = null;
 		String result = null;
@@ -92,7 +84,6 @@ public class ImageRecognition extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		// ������ ���� (json ���·�)
 		JSONObject obj = new JSONObject();
 		obj.put("path", result);
 		

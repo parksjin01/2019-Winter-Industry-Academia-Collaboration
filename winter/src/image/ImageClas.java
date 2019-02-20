@@ -4,7 +4,6 @@ import java.io.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +13,6 @@ import org.json.simple.JSONObject;
 /**
  * Servlet implementation class ImageClas
  */
-@WebServlet("/imageClas")
 public class ImageClas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,13 +42,8 @@ public class ImageClas extends HttpServlet {
 		
 		String path = (String)request.getParameter("path");
 		ServletContext context = getServletContext();
-		String imagePath = context.getRealPath(path);	// �̹��� ���� ������
+		String imagePath = context.getRealPath(path);	
 		
-		/*
-		 * TODO:jython�� ���� python ���ϰ� ����
-		 * 
-		 */
-
 		String line = null;
 		String result = null;
 		try{
@@ -88,7 +81,6 @@ public class ImageClas extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		// ������ ���� (json ���·�)
 		JSONObject obj = new JSONObject();
 		obj.put("path", result);
 		

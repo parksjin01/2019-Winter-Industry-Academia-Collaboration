@@ -1,9 +1,12 @@
 package user;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import DBconst.TibeLookUp;
+
 
 public class UserDAO {
 
@@ -17,19 +20,27 @@ public class UserDAO {
 	private ResultSet rs;
 	
 	public UserDAO() {
+//		try {
+//			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
+//			String dbID = "jw";
+//			String dbPassword = "root";
+//			Class.forName("com.tmax.tibero.jdbc.Driver");
+//			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/winter?serverTimezone=UTC";
-			String dbID = "root";
-			String dbPassword = "root";
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			TibeLookUp tbLookUp = new TibeLookUp();
+	        conn = tbLookUp.getConnection();
+	        System.out.println(conn);
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
 	}
 	
 	public int login(User user) {
-		String SQL = "SELECT pw FROM user WHERE email = ?";
+		String SQL = "SELECT pw FROM user_list WHERE email = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user.getEmail());
@@ -50,7 +61,7 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String SQL = "INSERT INTO user VALUES (0, 0, ?, ?, ?, now())";
+		String SQL = "INSERT INTO user_list VALUES (user_id_increment.nextval, 0, ?, ?, ?, systimestamp)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(2, user.getEmail());
@@ -64,7 +75,7 @@ public class UserDAO {
 	
 	
 	public void setUser(User user) {
-		String SQL = "SELECT * FROM user WHERE email = ?";
+		String SQL = "SELECT * FROM user_list WHERE email = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user.getEmail());

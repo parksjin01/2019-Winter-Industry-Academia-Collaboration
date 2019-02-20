@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>winter</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- servlets -->
+  <servlet>
+  	<servlet-name>Basic MNIST</servlet-name>
+  	<servlet-class>image.BasicMNIST</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Image Classification</servlet-name>
+  	<servlet-class>image.ImageClas</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Image Pre-processing</servlet-name>
+  	<servlet-class>image.ImageProc</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Image Recognition</servlet-name>
+  	<servlet-class>image.ImageRecognition</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Recommend Loader</servlet-name>
+  	<servlet-class>recomm.RecommLoader</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Recommend Register</servlet-name>
+  	<servlet-class>recomm.RecommRegister</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Recommend Update</servlet-name>
+  	<servlet-class>recomm.RecommUpdate</servlet-class>
+  </servlet>
+  
+  <!-- mapping -->
+  <servlet-mapping>
+  	<servlet-name>Basic MNIST</servlet-name>
+  	<url-pattern>/basicMNIST</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Image Classification</servlet-name>
+  	<url-pattern>/imageClas</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Image Pre-processing</servlet-name>
+  	<url-pattern>/imageProc</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Image Recognition</servlet-name>
+  	<url-pattern>/imageRecognition</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Recommend Loader</servlet-name>
+  	<url-pattern>/recommLoader</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Recommend Register</servlet-name>
+  	<url-pattern>/recommRegister</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Recommend Update</servlet-name>
+  	<url-pattern>/recommUpdate</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

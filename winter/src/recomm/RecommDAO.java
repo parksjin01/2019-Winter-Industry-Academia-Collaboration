@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import DBconst.TibeLookUp;
 
 public class RecommDAO {
 	
@@ -12,15 +15,23 @@ public class RecommDAO {
 	private ResultSet rs;
 	
 	public RecommDAO() {
+//		try {
+//			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
+//			String dbID = "jw";
+//			String dbPassword = "root";
+//			Class.forName("com.tmax.tibero.jdbc.Driver");
+//			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/winter?serverTimezone=UTC";
-			String dbID = "root";
-			String dbPassword = "root";
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			TibeLookUp tbLookUp = new TibeLookUp();
+	        conn = tbLookUp.getConnection();
+	        System.out.println(conn);
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
 	}
 	
 	public int getNext() {
@@ -31,16 +42,16 @@ public class RecommDAO {
 			if (rs.next()) {
 				return rs.getInt(1) + 1;
 			}
-			return 1;	// 첫번째 게시물인 경우
+			return 1;	// first upload
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public int register(String name, String url, String intro) {
-		String SQL = "INSERT INTO recomm VALUES (0, ?, ?, 1, ?)";
+		String SQL = "INSERT INTO recomm VALUES (recomm_id_increment.nextval, ?, ?, 1, ?)";
 		try {
 			
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -52,7 +63,7 @@ public class RecommDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public Recomm getRecomm(int recommID) {
@@ -89,7 +100,7 @@ public class RecommDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public int delete(int recommID) {
@@ -102,7 +113,7 @@ public class RecommDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -1;	// 데이터베이스 오류
+		return -1;	// database error
 	}
 	
 	public ArrayList<Recomm> getList() {

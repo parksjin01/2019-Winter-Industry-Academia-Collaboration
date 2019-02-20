@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import org.json.simple.JSONObject;
 /**
  * Servlet implementation class BasicMNIST
  */
-@WebServlet("/basicMNIST")
 public class BasicMNIST extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -47,12 +45,8 @@ public class BasicMNIST extends HttpServlet {
 		
 		String path = (String)request.getParameter("path");
 		ServletContext context = getServletContext();
-		String imagePath = context.getRealPath(path);	// �̹��� ���� ������
+		String imagePath = context.getRealPath(path);	// real image path
 		
-		/*
-		 * TODO:jython�� ���� python ���ϰ� ����
-		 * 
-		 */
 
 		String line = null;
 		String result = null;
@@ -91,7 +85,6 @@ public class BasicMNIST extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		// ������ ���� (json ���·�)
 		JSONObject obj = new JSONObject();
 		obj.put("path", result);
 		

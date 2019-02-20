@@ -4,16 +4,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class RecommAction
  */
-@WebServlet("/recommRegister")
 public class RecommRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,17 +34,17 @@ public class RecommRegister extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 데이터들을 담을 그릇인 DTO(혹은 Bean) 객체를 생성 후, 데이터들을 set해준다
+		// create Bean object and setting them
 		Recomm recomm = new Recomm();
 		
 		recomm.setName(request.getParameter("name"));
 		recomm.setUrl(request.getParameter("url"));
 		recomm.setIntro(request.getParameter("intro"));
 		
-		// posterDAO 객체 생성
+		// create posterDAO object
 		RecommDAO recommDAO = new RecommDAO();
 		
-		// insert 쿼리 수행
+		// do insert query
 		int result = recommDAO.register(recomm.getName(), recomm.getUrl(), recomm.getIntro());
 		if (result == -1) {
 			PrintWriter script = response.getWriter();
