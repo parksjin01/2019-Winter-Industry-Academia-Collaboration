@@ -30,6 +30,7 @@ def resizing(image_name, size):
         print "Can't find image"
         return "ERROR"
 
+    img.show()
     # X = np.array(X)
 
     np.save(file_path + "/image" + image_name.split("/")[-1] + ".npy", X)
