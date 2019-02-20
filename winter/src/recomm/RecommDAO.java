@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import DBconst.TibeLookUp;
 
 public class RecommDAO {
 	
@@ -12,15 +15,23 @@ public class RecommDAO {
 	private ResultSet rs;
 	
 	public RecommDAO() {
+//		try {
+//			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
+//			String dbID = "jw";
+//			String dbPassword = "root";
+//			Class.forName("com.tmax.tibero.jdbc.Driver");
+//			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		try {
-			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
-			String dbID = "jw";
-			String dbPassword = "root";
-			Class.forName("com.tmax.tibero.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			TibeLookUp tbLookUp = new TibeLookUp();
+	        conn = tbLookUp.getConnection();
+	        System.out.println(conn);
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
 	}
 	
 	public int getNext() {
@@ -40,7 +51,7 @@ public class RecommDAO {
 	}
 	
 	public int register(String name, String url, String intro) {
-		String SQL = "INSERT INTO recomm VALUES (0, ?, ?, 1, ?)";
+		String SQL = "INSERT INTO recomm VALUES (recomm_id_increment.nextval, ?, ?, 1, ?)";
 		try {
 			
 			PreparedStatement pstmt = conn.prepareStatement(SQL);

@@ -13,32 +13,32 @@
   <!-- servlets -->
   <servlet>
   	<servlet-name>Basic MNIST</servlet-name>
-  	<servlet-class>BasicMNIST</servlet-class>
+  	<servlet-class>image.BasicMNIST</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Image Classification</servlet-name>
-  	<servlet-class>ImageClas</servlet-class>
+  	<servlet-class>image.ImageClas</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Image Pre-processing</servlet-name>
-  	<servlet-class>ImageProc</servlet-class>
+  	<servlet-class>image.ImageProc</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Image Recognition</servlet-name>
-  	<servlet-class>ImageRecognition</servlet-class>
+  	<servlet-class>image.ImageRecognition</servlet-class>
   </servlet>
   
   <servlet>
   	<servlet-name>Recommend Loader</servlet-name>
-  	<servlet-class>RecommLoader</servlet-class>
+  	<servlet-class>recomm.RecommLoader</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Recommend Register</servlet-name>
-  	<servlet-class>RecommRegister</servlet-class>
+  	<servlet-class>recomm.RecommRegister</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Recommend Update</servlet-name>
-  	<servlet-class>RecommUpdate</servlet-class>
+  	<servlet-class>recomm.RecommUpdate</servlet-class>
   </servlet>
   
   <!-- mapping -->
