@@ -50,7 +50,7 @@ public class ImageClas extends HttpServlet {
 			String pythonScriptPath = "";
 			String[] splitedPath = imagePath.split("/");
 			for (String tmp : splitedPath) {
-				if (tmp.equalsIgnoreCase(".metadata"))
+				if (tmp.equalsIgnoreCase("upload"))
 					break;
 				pythonScriptPath += tmp + "/";
 			}
@@ -61,8 +61,9 @@ public class ImageClas extends HttpServlet {
 					pythonScriptPath + "MNIST/improved_model_load.py", 
 					imagePath, 
 					"MNIST_MODEL_IMPROVED"};
-			String[] env = {"PATH=/opt/local/bin:/opt/local/sbin:/Users/Knight/Library/Android/sdk/tools:/Users/Knight/Library/Android/sdk/platform-tools:/usr/sbin:/usr/bin:/sbin:/bin:/Users/Knight/test:/Users/Knight/ns3.28:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Applications/Wireshark.app/Contents/MacOS",
-					"PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Applications/Wireshark.app/Contents/MacOS"};
+//			String[] env = {"PATH=/opt/local/bin:/opt/local/sbin:/Users/Knight/Library/Android/sdk/tools:/Users/Knight/Library/Android/sdk/platform-tools:/usr/sbin:/usr/bin:/sbin:/bin:/Users/Knight/test:/Users/Knight/ns3.28:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Applications/Wireshark.app/Contents/MacOS",
+//					"PYTHONPATH=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Applications/Wireshark.app/Contents/MacOS"};
+			String[] env = {"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", "PYTHONPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"};
 		    Process p = Runtime.getRuntime().exec(command, env);
 		    BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
