@@ -1,6 +1,7 @@
 package DBconst;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
  
 import java.sql.Connection;
@@ -15,22 +16,13 @@ public class TibeLookUp {
     String username="jw";
     String password="root";
     
-    String jndiName="tibero";
-    Hashtable env;
+    String jndiName="winter";
     DataSource ds;
     
     
-    InitialContext ctx;
+    InitialContext ctx = null;
     @SuppressWarnings("unchecked")
-	public TibeLookUp() {
-    	// TODO Auto-generated constructor stub
-	    env = new Hashtable();
-	    env.put(Context.INITIAL_CONTEXT_FACTORY, "jeus.jndi.JEUSContextFactory");
-	    env.put(Context.URL_PKG_PREFIXES, "jeus.jndi.jns.url");
-	    env.put(Context.PROVIDER_URL, hostname);
-	    env.put(Context.SECURITY_PRINCIPAL, username);
-	    env.put(Context.SECURITY_CREDENTIALS, password);
-    }
+	public TibeLookUp() {}
     
     public Connection getConnection()                                                    
     {                                                                                    
@@ -39,14 +31,24 @@ public class TibeLookUp {
         try                                                                                
         {                                                                                  
         	if (ctx == null) {                                                                                             
-        		ctx = new InitialContext(env);                     
+        		ctx = new InitialContext();                     
         		ds = (DataSource)ctx.lookup(this.jndiName);
         	}                                                                                
         	connection = ds.getConnection();                                                 
         	connection.setAutoCommit(false);                                                 
-        } catch (Exception e) {                                                            
-        	e.printStackTrace();    
-        }                                                                                  
+        } catch (NamingException ne) {
+        	System.out.println("<<<<<<<NamingException Occurred>>>>>>>");
+        	ne.printStackTrace();    
+        } catch (SQLException se) {
+        	System.out.println("<<<<<<<SQLException Occurred>>>>>>>");
+        	se.printStackTrace();
+        } finally {
+        	try {
+        		ctx.close();
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
+        }
                                                                                           
         return connection;                                                                 
     }

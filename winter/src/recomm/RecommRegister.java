@@ -55,7 +55,7 @@ public class RecommRegister extends HttpServlet {
 		} else {
 			PrintWriter  script = response.getWriter();
 			script.println("<script>");
-			script.println("location.href = './index.jsp'");
+			script.println("location.href = './Basic_MNIST.jsp'");
 			script.println("</script>");
 		}
 	}

@@ -20,15 +20,6 @@ public class UserDAO {
 	private ResultSet rs;
 	
 	public UserDAO() {
-//		try {
-//			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
-//			String dbID = "jw";
-//			String dbPassword = "root";
-//			Class.forName("com.tmax.tibero.jdbc.Driver");
-//			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
 		try {
 			TibeLookUp tbLookUp = new TibeLookUp();
 	        conn = tbLookUp.getConnection();
@@ -48,8 +39,10 @@ public class UserDAO {
 			if (rs.next()) {
 				if (rs.getString(1).equals(user.getPw())) {
 					setUser(user);
+					conn.close();
 					return LOGIN_SUCCESS;
 				} else {
+					conn.close();
 					return INCORRECT_PW;
 				}
 			}
@@ -84,6 +77,7 @@ public class UserDAO {
 				user.setUserID(rs.getInt(1));
 				user.setAdmin(rs.getInt(2));
 			}
+			conn.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

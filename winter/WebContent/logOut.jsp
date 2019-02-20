@@ -12,7 +12,7 @@
 	%>	<!-- 세션에 저장된 값 모두 한번에 삭제, 세션 연결이 끊어짐 -->
 	
 	<script>
-	location.href="./index.jsp";	//"IndexPage.jsp" 페이지로 링크, 이동
+	location.href="./Basic_MNIST.jsp";	//"IndexPage.jsp" 페이지로 링크, 이동
 	</script>
 </body>
 </html>

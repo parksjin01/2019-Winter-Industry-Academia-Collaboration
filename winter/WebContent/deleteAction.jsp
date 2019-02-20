@@ -31,7 +31,7 @@
 				PrintWriter  script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('no authority')");
-				script.println("location.href = './index.jsp'");
+				script.println("location.href = './Basic_MNIST.jsp'");
 				script.println("</script>");
 			} else {
 				
@@ -48,7 +48,7 @@
 				} else {
 					PrintWriter  script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href = './index.jsp#sites'");
+					script.println("location.href = './Basic_MNIST.jsp#sites'");
 					script.println("</script>");
 				}
 	

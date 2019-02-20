@@ -15,19 +15,10 @@ public class RecommDAO {
 	private ResultSet rs;
 	
 	public RecommDAO() {
-//		try {
-//			String dbURL = "jdbc:tibero:thin:@10.10.0.52:8629:tibero";
-//			String dbID = "jw";
-//			String dbPassword = "root";
-//			Class.forName("com.tmax.tibero.jdbc.Driver");
-//			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
 		try {
 			TibeLookUp tbLookUp = new TibeLookUp();
 	        conn = tbLookUp.getConnection();
-	        System.out.println(conn);
+	        System.out.println("CONNECTION : " + conn);
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -40,8 +31,10 @@ public class RecommDAO {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
+				conn.close();
 				return rs.getInt(1) + 1;
 			}
+			conn.close();
 			return 1;	// first upload
 			
 		} catch (Exception e) {
@@ -51,14 +44,18 @@ public class RecommDAO {
 	}
 	
 	public int register(String name, String url, String intro) {
-		String SQL = "INSERT INTO recomm VALUES (recomm_id_increment.nextval, ?, ?, 1, ?)";
+		String SQL = "INSERT INTO recomm VALUES (recomm_id_increment.nextval, ?, ?, 1, ?);";
 		try {
 			
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, name);
 			pstmt.setString(2, url);
 			pstmt.setString(3, intro);
-			return pstmt.executeUpdate();
+			int result = pstmt.executeUpdate();
+			pstmt = conn.prepareStatement("COMMIT");
+			pstmt.executeQuery();
+			conn.close();
+			return result;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,8 +75,10 @@ public class RecommDAO {
 				recomm.setName(rs.getString(2));
 				recomm.setUrl(rs.getString(3));
 				recomm.setIntro(rs.getString(5));
+				conn.close();
 				return recomm;
 			}
+			conn.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -95,7 +94,10 @@ public class RecommDAO {
 			pstmt.setString(2, url);
 			pstmt.setString(3, intro);
 			pstmt.setInt(4, recommID);
-			return pstmt.executeUpdate();
+			int result = pstmt.executeUpdate();
+			pstmt = conn.prepareStatement("COMMIT");
+			pstmt.executeQuery();
+			return result;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,8 +110,12 @@ public class RecommDAO {
 		try {
 			
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, recommID);	
-			return pstmt.executeUpdate();		
+			pstmt.setInt(1, recommID);
+			int result = pstmt.executeUpdate();
+			pstmt = conn.prepareStatement("COMMIT");
+			pstmt.executeQuery();
+			conn.close();
+			return result;		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -130,7 +136,7 @@ public class RecommDAO {
 				recomm.setIntro(rs.getString(5));
 				list.add(recomm);
 			}
-			
+			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
